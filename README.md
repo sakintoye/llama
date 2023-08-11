@@ -53,10 +53,7 @@ These models are not finetuned for chat or Q&A. They should be prompted so that 
 See `example_text_completion.py` for some examples. To illustrate, see command below to run it with the llama-2-7b model (`nproc_per_node` needs to be set to the `MP` value):
 
 ```
-torchrun --nproc_per_node 1 example_text_completion.py \
-    --ckpt_dir llama-2-7b/ \
-    --tokenizer_path tokenizer.model \
-    --max_seq_len 128 --max_batch_size 4
+torchrun --nproc_per_node 1 example_text_completion.py --ckpt_dir llama-2-7b/ --tokenizer_path tokenizer.model --max_seq_len 4000 --max_batch_size 1
 ```
 
 ### Fine-tuned Chat Models
@@ -69,10 +66,7 @@ You can also deploy additional classifiers for filtering out inputs and outputs 
 Examples using llama-2-7b-chat:
 
 ```
-torchrun --nproc_per_node 1 example_chat_completion.py \
-    --ckpt_dir llama-2-7b-chat/ \
-    --tokenizer_path tokenizer.model \
-    --max_seq_len 512 --max_batch_size 4
+torchrun --nproc_per_node 1 example_chat_completion.py --ckpt_dir llama-2-7b-chat/ --tokenizer_path tokenizer.model --max_seq_len 4000 --max_batch_size 1
 ```
 
 Llama 2 is a new technology that carries potential risks with use. Testing conducted to date has not — and could not — cover all scenarios.
